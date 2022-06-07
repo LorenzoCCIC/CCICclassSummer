@@ -1,0 +1,25 @@
+//ASCII art
+String print = "";
+print = "     ^     /        //          // //";
+println(print);
+println("    / \\     ________");
+println("   /   \\   /       / \\  /   / ");
+println("   [ ^ ] */       /   \\   /");
+println("   [ | ]*/______ /    /");
+println("   [ | ] \\      \\    /  /");
+println("   [ | ]* \\      \\  /");
+println("   [ | ]*  \\------\\/           /   /");
+println("   [ | ] *  *  \\ \\            /   /");
+println("   [ | ]  *  * \\\\ \\--\\      /   /  ");
+println("   [ | ] *      \\\\ \\--\\\\---=\\  /  ");
+println("   [ | ]   *     \\\\ \\--\\\\____\\/  ");
+println("   [ | ]    *     \\\\ \\--\\");
+println("   [ | ]   *       --");
+println("   [ | ]");
+println("   [ | ]");
+print = "O--\\   /--O";
+println(print);
+print = "    [|]";
+println(print);
+println("    [|]");
+println("     0");
