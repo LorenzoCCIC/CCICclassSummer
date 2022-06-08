@@ -1,15 +1,22 @@
 //Game for summer class
 //Game: Breakout
 //Requirements for end product: colision, paddle, disappearing bricks. 
-
 //Variables
-var i = 0;
-//Draw Screen
-noCursor();
-surface.setLocation(0,0);
+//noCursor();
+//frameRate(30);
+//size(1000,1000);
 
 //INPUT
+String value;
+void draw() {
+};
+
 void keyPressed() {
-  print(key);
-  i = i +1;
-}
+  if (value == "0") {
+    value = "255";
+  } else {
+    value =" 0";
+  }
+  print(keyCode);
+};
+ 
