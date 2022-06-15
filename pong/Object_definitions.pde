@@ -1,6 +1,6 @@
 //player controlled paddle. 
 
-class paddle {
+public class paddle {
   //declares local coordinates (directions are useless)
   int score;
   int x;
@@ -39,7 +39,7 @@ class paddle {
 
 
 //PLEASE WELCOME THE BALL  OoOoOOOOOOH!
-class ball {
+public class ball {
   //X coordinate
   float x;
   //Y coordinate
@@ -145,7 +145,7 @@ class ball {
 
 
 
-class power {
+public class power {
   /*Power up options
   player speedup: moveUp
   ball speedUp: speedUp

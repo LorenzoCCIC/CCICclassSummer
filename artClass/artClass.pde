@@ -1,18 +1,29 @@
-int s = 50;
+int s = 20;
+int eyeL = 1000;
+int eyeLY =100;
+int rad = 200;        // Width of the shape
+float xspeed = 2.8;  // Speed of the shape
+float yspeed = 2.2;  // Speed of the shape
 
+int xdirection = 1;  // Left or Right
+int ydirection = 1;
 void setup() {
   background(0);
   size(800, 800);
+  eyeL = 8;
+  eyeLY = 7;
 }
 
 void draw() {
   background(122);
   frameRate(30);
   stroke(255);
-  grid();
-  stroke(255,0,0);
-  line(400, 0, 400, 800);
-  stroke(255);
+  //grid();
+  //stroke(255,0,0);
+  //line(400, 0, 400, 800);
+  //stroke(255);
+  
+  
   complete();
 }
 
@@ -26,12 +37,25 @@ void grid() {
 }
 
 void complete() {
-  head(8, 4);
-  nose(8, 6);
-  eye(5, 7);
-  eye(11, 7);
+  ears(eyeL, eyeLY-3);
+  head(eyeL, eyeLY-3);
+  nose(eyeL, eyeLY-1);
+  eye(eyeL-3, eyeLY);
+  eye(eyeL+3, eyeLY);
+  
+  
 }
 
+void ears(float x, float y){
+  fill(#f27b97);
+  stroke(#f27b97);
+  triangle((x-3)*s, y*s, (x-6)*s, (y-1)*s, (x-4)*s,  (y+3)*s);
+  triangle((x+3)*s, y*s, (x+6)*s, (y-1)*s, (x+4)*s,  (y+3)*s);
+  fill(#ef477c);
+  stroke(#ef477c);
+  triangle((x+5)*s, (y+2.5)*s, (x+6)*s, (y-1)*s, (x+4)*s,  (y+3)*s);
+  triangle((x-5)*s, (y+2.5)*s, (x-6)*s, (y-1)*s, (x-4)*s,  (y+3)*s);
+}
 void head(float x, float y) {
   fill(#f8afbc);
   stroke(#f8afbc);
@@ -44,7 +68,7 @@ void head(float x, float y) {
 void eye(float x, float y) {
   fill(#6f3619);
   stroke(#6f3619);
-  circle(x*s, y*s, 50);
+  circle(x*s, y*s, s);
 }
 void nose(float x, float y){
   fill(#ef477c);
