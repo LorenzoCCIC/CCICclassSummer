@@ -1,6 +1,6 @@
-int s = 20;
-int eyeL = 1000;
-int eyeLY =100;
+int s = 30;
+int eyeL = 4;
+int eyeLY =4;
 int rad = 200;        // Width of the shape
 float xspeed = 2.8;  // Speed of the shape
 float yspeed = 2.2;  // Speed of the shape
@@ -10,8 +10,8 @@ int ydirection = 1;
 void setup() {
   background(0);
   size(800, 800);
-  eyeL = 8;
-  eyeLY = 7;
+  eyeL = 6;
+  eyeLY = 6;
 }
 
 void draw() {
@@ -22,9 +22,16 @@ void draw() {
   //stroke(255,0,0);
   //line(400, 0, 400, 800);
   //stroke(255);
-  
-  
   complete();
+    delay(1000);
+    s += 10;
+    
+    eyeL = (800/s)/2;
+    eyeLY = (800/s)/3;
+    complete();
+  
+  
+  
 }
 
 void grid() {
