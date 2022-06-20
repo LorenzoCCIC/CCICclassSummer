@@ -1,13 +1,21 @@
 //Game for summer class
 //Game: Breakout
-//Requirements for end product: colision, paddle, disappearing bricks. 
+//Requirements for end product: colision, paddle, scoring. 
+/*Power up info:
+black cross: player speed down/up DONE
+blue box: paddle size change DONE
+
+*/
+
 
 //Writing variables
 //Player text colors. Please change! have fun! (RGB)
 int[] P1C = {255, 0, 18};
-int[] P2C = {16, 13, 214};
-int[] BC = {255, 255, 255};
+int[] P2C = {255, 13, 214};
+int[] BC = {255, 225, 255};
+int[] EBC = {122, 122, 122};
 int winScore = 5;
+
 float m = 1; //Multiplier on speed.
 int sizeX = 800;
 int sizeY = 800;
@@ -16,7 +24,10 @@ boolean lArrow;
 boolean aKey;
 boolean dKey;
 //Defines the items in this
+
 ball ball;
+ball extraBall1;
+ball extraBall2;
 paddle player;
 paddle player2;
 power power;
@@ -26,15 +37,20 @@ power power;
 void draw() {
   background(0);
   power.generation();
-  
   int boxL = 50;
+  
   //do we need a new ball
   if (ball.dead == true) {
       delay(3000);
       m = 1;
       ball = new ball(400,400,50, BC);
       ball.kickoff();
+   } if (extraBall1.dead == true) {
+      extraBall1 = new ball(-100, -100, 1, EBC);
+   } if (extraBall2.dead == true) {
+      extraBall2 = new ball(-100, -100, 1, EBC);
    }
+   
    //create the goals.
    for (int i = 0; i<=sizeX/(boxL); i++) {
      if (i % 2== 0){
@@ -56,11 +72,11 @@ void draw() {
      ball.dead = true;
   }
   //is it in bounds? and move
-  if (585 > player.x && rArrow == true) {  
+  if (800 > player.x+player.Xsize && rArrow == true) {  
     player.x += 15*m;
   } if (lArrow == true && player.x > 0) {
     player.x -= 15*m;
-  } if (585 > player2.x && dKey == true) {
+  } if (800 > player2.x+player2.Xsize && dKey == true) {
     player2.x += 15*m;
   } if (0 < player2.x && aKey == true) {
     player2.x -= 15*m;
@@ -89,6 +105,8 @@ void setup() {
   player = new paddle(0, 225, 700, P1C);
   player2 = new paddle(0, 225, 50, P2C);
   ball = new ball(350,350,50, BC);
+  extraBall1 = new ball(-100,-100,50, EBC);
+  extraBall2 = new ball(-100,-100,50, EBC);
   ball.kickoff();
   power.generation();
 }
